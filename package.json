@@ -1,9 +1,9 @@
 {
   "name": "react-temp-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "基于node的react模板脚手架工具",
   "bin": {
-    "create": "index.js"
+    "react-temp-cli": "index.js"
   },
   "dependencies": {
     "chalk": "^2.4.2",
