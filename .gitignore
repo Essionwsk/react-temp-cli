@@ -1,0 +1,13 @@
+# Logs
+logs
+*.log
+
+node_modules
+*.tgz
+.env
+package-lock.json
+
+.idea/
+yarn.lock
+web/public
+
