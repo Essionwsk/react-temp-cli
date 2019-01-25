@@ -14,4 +14,8 @@
 
 ```javascript
  /> react-temp-cli create
+
+ 项目初始化完成之后可使用一下命令启动
+ />yarn dev     //热编译开发模式
+ />yarn build   //编译项目
 ```
