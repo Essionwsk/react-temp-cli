@@ -18,21 +18,16 @@ program
 	    let { projectName } = answers;
 	    console.log(`项目名：${projectName}`);
 	    console.log(`项目初始化中...`);
-	    download('github.com:Essionwsk/react-web-temp#master', projectName , (err) => {
-		if(err){
-		    console.log("模板初始化失败");
-		    return false
+	    child_process.exec(`yarn -v`,(err,out,xxx)=>{
+	        if(err){
+		    child_process.exec(`npm install -g yarn`,()=>{
+			downLoadTemp(projectName);
+		    })
+		}else{
+		    downLoadTemp(projectName);
 		}
-		let aa = child_process.exec(`yarn install`,{
-		    cwd:`./${projectName}`,
-		    encoding:"UTF-8",
-		    stdio:"pipe"
-		},(err,out,sterr)=>{
-
-		});
-		aa.stdout.on('data', function (data) {
-		    console.log(data);
-		});
+	    }).stdout.on("data",(data)=>{
+		console.log(data?data:"");
 	    })
 	});
     });
@@ -40,3 +35,20 @@ program
 program.parse(process.argv);
 
 
+let downLoadTemp = (projectName)=>{
+    download('github.com:Essionwsk/react-web-temp#master', projectName , (err) => {
+	if(err){
+	    console.log("模板初始化失败");
+	    return false
+	}
+	child_process.exec(`yarn install`,{
+	    cwd:`./${projectName}`,
+	    encoding:"UTF-8",
+	    stdio:"pipe"
+	},(err,out,sterr)=>{
+
+	}).stdout.on('data', function (data) {
+	    console.log(data);
+	});
+    })
+};
