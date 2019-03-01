@@ -59,3 +59,17 @@ let downLoadTemp = (projectName,isInstall)=>{
 	}
     })
 };
+
+/***
+
+ npm 上传步骤
+
+ 1> npm config set registry https://registry.npmjs.org/
+
+ 2> npm adduser
+
+ 3> 修改版本号, npm publish
+
+ 4> npm config set registry https://registry.npm.taobao.org
+
+ */
